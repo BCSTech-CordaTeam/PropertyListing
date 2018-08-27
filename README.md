@@ -31,9 +31,9 @@ Corda docsite.
 
 ## Getting Set Up
 
-To get started, clone this repository with:  **set to github link
+To get started, clone this repository with:
 
-     git clone https://github.com/corda/cordapp-template-kotlin.git
+     git clone https://github.com/BCSTech-CordaTeam/PropertyListing.git
 
 And change directories to the newly cloned repo:
 

@@ -73,20 +73,20 @@ class PropertyListingApi(private val rpcOps: CordaRPCOps) {
     @Path("ownedPropertyList")
     @Produces(MediaType.APPLICATION_JSON)
     fun ownedPropertyList() = rpcOps.vaultQuery(PropertyState::class.java).states
-            .filter { (state) -> state.data.owner.name == myLegalName }
+            .filter { (state) -> state.data.owner.name == myLegalName && state.data.requester?.name == null}
 
     @GET
     @Path("propertySellingPrice")
     @Produces(MediaType.APPLICATION_JSON)
     fun propertySellingPrice() = rpcOps.vaultQuery(PropertyState::class.java).states
-            .filter { (state) -> state.data.owner.name == myLegalName }
+            .filter { (state) -> state.data.owner.name == myLegalName && state.data.requester?.name == null}
             .map { (state) -> mapOf("Property Address" to state.data.propertyAddress, "Property Selling Price" to state.data.propertySellingPrice) }
 
     @GET
     @Path("propertyArea")
     @Produces(MediaType.APPLICATION_JSON)
     fun propertyArea() = rpcOps.vaultQuery(PropertyState::class.java).states
-            .filter { (state) -> state.data.owner.name == myLegalName }
+            .filter { (state) -> state.data.owner.name == myLegalName && state.data.requester?.name == null}
             .map { (state) -> mapOf("Property Address" to state.data.propertyAddress, "Property Area" to state.data.propertyArea) }
 
     @GET

@@ -1,0 +1,12 @@
+
+[91m   ______               __
+  / ____/     _________/ /___ _
+ / /     __  / ___/ __  / __ `/         [94mWhenever I go near my bank I get
+[91m/ /___  /_/ / /  / /_/ / /_/ /          [94mwithdrawal symptoms 
+[91m\____/     /_/   \__,_/\__,_/[m
+
+[99;1m--- Corda Open Source 3.2-corda (5ae8325) -----------------------------------------------
+
+[m
+Logs can be found in                    : /home/parnika/workspace/checkgithubContri/PropertyListing/build/nodes/PartyA/logs
+Database connection url is              : jdbc:h2:tcp://127.0.1.1:34555/node
