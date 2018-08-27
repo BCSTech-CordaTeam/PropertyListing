@@ -1,0 +1,35 @@
+/.gradle
+
+# General build files
+**/build/*
+!docs/build/*
+!gradle/wrapper/gradle-wrapper.jar
+
+### JetBrains template
+*.iml
+
+## Directory-based project format:
+/.idea/
+/.idea/workspace.xml
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+/cordapp/out/
+/cordapp-contracts-states/out/
+
+# mpeltonen/sbt-idea plugin
+/.idea_modules/
+
+### Logs ###
+*.log
+*.log*
+=======
+/.nb-gradle/
+
+.DS_Store
