@@ -88,11 +88,16 @@ Following API endpoints are available:
     ```
 * Property Registration initiated by owner
 
-    Header Parameters: propertyAddress, propertyArea, propertySellingPrice
-
     ```
     /api/propertyListing/registration
     ```
+
+    Example:
+
+    ```
+    /api/propertyListing/registration?propertyAddress=A-24, New York&propertyArea=500&propertySellingPrice=90
+    ```
+
 *  Retrieve list of properties owned by the node
 
     ```
@@ -117,7 +122,11 @@ Following API endpoints are available:
     /api/propertyListing/requestPropertyList 
     ```
 
-    Example: /api/propertyListing/requestPropertyList?owner=O=PartyA,L=London,C=GB
+    Example:
+
+    ```
+    /api/propertyListing/requestPropertyList?owner=O=PartyA,L=London,C=GB
+    ```
 
 *   Retrieve list of properties that the node requested from property owners
     
@@ -128,20 +137,36 @@ Following API endpoints are available:
 *   Retrieve details of a particular requested property
     
     ```
-    /api/propertyListing/requestedPropertyDetails/{address}
+    /api/propertyListing/requestedPropertyDetailsByAddress
     ```
-    
+
+    Example:
+
+    ```
+    /api/propertyListing/requestedPropertyDetailsByAddress?address=A-24, New York
+    ```
+
 *   Retrieve list of properties that the node shared with requesters
     
     ```
-    /api/propertyListing/sharedProperties
+    /api/propertyListing/sharedPropertyList
     ```
     
 *   Retrieve list of properties that the node shared with a particular requester
 
-    Header Parameter: requester
+    ```
+    /api/propertyListing/sharedProperties
+    ```
+
+    Example:
 
     ```
-    /api/propertyListing/sharedProperties/requester
+    /api/propertyListing/sharedProperties?requester=O=PartyB, L=New York, C=US
     ```
-    
+
+### Postman Collection
+
+The postman collection and environment json files are in the following directory:
+
+    /cordapp/src/main/resources/postman
+

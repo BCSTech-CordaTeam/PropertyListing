@@ -31,11 +31,11 @@ class PropertyListingApi(private val rpcOps: CordaRPCOps) {
             .map { it.legalIdentities.first().name }
             .filter { it.organisation !in (SERVICE_NAMES + myLegalName.organisation) })
 
-    @PUT
+    @POST
     @Path("registration")
-    fun propertyRegistration(@HeaderParam("propertyAddress") propertyAddress: String,
-                             @HeaderParam("propertyArea") propertyArea: Long,
-                             @HeaderParam("propertySellingPrice") propertySellingPrice: Long): Response
+    fun propertyRegistration(@QueryParam("propertyAddress") propertyAddress: String,
+                             @QueryParam("propertyArea") propertyArea: Long,
+                             @QueryParam("propertySellingPrice") propertySellingPrice: Long): Response
     {
         if(propertyAddress.isEmpty())
             return Response.status(HttpStatus.BAD_REQUEST_400).entity("Property Address is a mandatory field.").build()
@@ -54,7 +54,7 @@ class PropertyListingApi(private val rpcOps: CordaRPCOps) {
         }
     }
 
-    @PUT
+    @POST
     @Path("requestPropertyList")
     fun requestPropertyList(@QueryParam("owner") owner: CordaX500Name?) : Response {
         return try {
@@ -97,24 +97,24 @@ class PropertyListingApi(private val rpcOps: CordaRPCOps) {
             .map { (state) -> mapOf("Owner" to state.data.owner , "Property Address" to state.data.propertyAddress)}
 
     @GET
-    @Path("requestedPropertyDetails/{address}")
+    @Path("requestedPropertyDetailsByAddress")
     @Produces(MediaType.APPLICATION_JSON)
-    fun requestedPropertyDetails(@PathParam("address") address: String) = rpcOps.vaultQuery(PropertyState::class.java).states
+    fun requestedPropertyDetails(@QueryParam("address") address: String) = rpcOps.vaultQuery(PropertyState::class.java).states
             .filter { (state) -> state.data.requester?.name == myLegalName && state.data.propertyAddress.equals(address)}
             .map { (state) -> mapOf("Owner" to state.data.owner, "Property Address" to state.data.propertyAddress
                     ,"Property Area" to state.data.propertyArea, "Property Selling Price" to state.data.propertySellingPrice)}
 
     @GET
-    @Path("sharedProperties")
+    @Path("sharedPropertyList")
     @Produces(MediaType.APPLICATION_JSON)
     fun sharedProperties() = rpcOps.vaultQuery(PropertyState::class.java).states
             .filter { (state) -> state.data.owner.name == myLegalName && state.data.requester?.name != null}
             .map { (state) -> mapOf("Property Address" to state.data.propertyAddress,  "Requester" to state.data.requester)}
 
     @GET
-    @Path("sharedProperties/requester")
+    @Path("sharedProperties")
     @Produces(MediaType.APPLICATION_JSON)
-    fun sharedPropertiesToRequester(@HeaderParam("requester") requester: String) = rpcOps.vaultQuery(PropertyState::class.java).states
+    fun sharedPropertiesToRequester(@QueryParam("requester") requester: String) = rpcOps.vaultQuery(PropertyState::class.java).states
             .filter { (state) -> state.data.owner.name == myLegalName && state.data.requester?.name.toString() == requester}
             .map { (state) -> mapOf("Property Address" to state.data.propertyAddress,  "Requester" to state.data.requester)}
 }

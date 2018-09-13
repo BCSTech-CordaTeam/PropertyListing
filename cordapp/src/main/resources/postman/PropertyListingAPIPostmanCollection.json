@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "4bd1c5a1-caab-44de-b72d-b687e43f67ef",
+		"name": "PropertyListingAPICollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Peers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/peers",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"peers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "myName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/myName",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"myName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requested properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/requestedProperties",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"requestedProperties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Owned Properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/ownedPropertyList",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"ownedPropertyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Properties shared to requesters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/sharedPropertyList",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"sharedPropertyList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Property Selling Price - own vault",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/propertySellingPrice",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"propertySellingPrice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Details of a requested property",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/requestedPropertyDetailsByAddress?address=A-24, New York",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"requestedPropertyDetailsByAddress"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "A-24, New York"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Property Area - own vault",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/propertyArea",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"propertyArea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Property Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/registration?propertyAddress=A-24, New York&propertyArea=50&propertySellingPrice=90",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"registration"
+					],
+					"query": [
+						{
+							"key": "propertyAddress",
+							"value": "A-24, New York"
+						},
+						{
+							"key": "propertyArea",
+							"value": "50"
+						},
+						{
+							"key": "propertySellingPrice",
+							"value": "90"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Properties shared to a requester",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "requester",
+						"value": "O=PartyB, L=New York, C=US",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/sharedProperties?requester=O=PartyB, L=New York, C=US",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"sharedProperties"
+					],
+					"query": [
+						{
+							"key": "requester",
+							"value": "O=PartyB, L=New York, C=US"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Property List from an owner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}:{{port}}/api/propertyListing/requestPropertyList?owner=O=PartyA,L=London,C=GB",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"propertyListing",
+						"requestPropertyList"
+					],
+					"query": [
+						{
+							"key": "owner",
+							"value": "O=PartyA,L=London,C=GB"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
